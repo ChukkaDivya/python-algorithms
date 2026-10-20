@@ -1,10 +1,15 @@
+# Best Time to Buy and Sell Stock
+# You are given an array prices, where prices[i] is the price of a stock on day i.
+# Choose one day to buy and a later day to sell. Return the maximum profit you can achieve. If no profit is possible, return 0.
 def max_profit(nums):
     min_price=nums[0]
     max_profit=0
     for price in nums:
-        min_price=min(min_price,price)
+        if price<min_price:
+            min_price=price
         profit=price-min_price
-        max_profit=max(max_profit,profit)
+        if profit>max_profit:
+            max_profit=profit
     return max_profit
 print(max_profit([7,1,5,3,6,4]))   # 5
 print(max_profit([7,6,4,3,1]))     # 0
